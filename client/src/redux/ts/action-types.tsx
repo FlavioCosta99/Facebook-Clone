@@ -1,0 +1,6 @@
+export enum Auth_ActionType {
+  AUTH = 'AUTH',
+  UPDATE_CURRENT = 'UPDATE_CURRENT',
+  AUTH_FAILURE = 'AUTH_FAILURE',
+  LOGOUT = 'LOGOUT',
+}
