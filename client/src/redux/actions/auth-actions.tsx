@@ -1,4 +1,6 @@
+import { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
+import { IUser } from '../../ts/auth_interfaces';
 import * as api from '../api/auth-api';
 import { Auth_ActionType } from '../ts/action-types';
 
@@ -21,9 +23,10 @@ export const signup =
   (formData: any, history: any) => async (dispatch: Dispatch) => {
     dispatch({ type: Auth_ActionType.AUTH_FAILURE, payload: null });
     try {
-      const { data } = await api.signUp(formData);
+      const { data }: AxiosResponse<IUser> = await api.signUp(formData);
+      console.log(data);
       dispatch({ type: Auth_ActionType.AUTH, payload: data });
-      history.push('/');
+      //history.push('/');
     } catch (error: any) {
       dispatch({
         type: Auth_ActionType.AUTH_FAILURE,

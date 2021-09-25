@@ -34,6 +34,8 @@ const authReducer = (
         user: payload.user,
         auth_error: null,
       };
+    case Auth_ActionType.SignUp_SUCCESS:
+      return { ...status, signUp_success: true };
     case Auth_ActionType.UPDATE_CURRENT:
       return {
         ...state,
