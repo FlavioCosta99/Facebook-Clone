@@ -7,9 +7,7 @@ import { Auth_ActionType } from '../redux/ts/action-types';
 
 export default function Navbar() {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(
-    (state: State) => state.authReducer.isLoggedIn
-  );
+  const { isLoggedIn }: any = useSelector((state: State) => state.authReducer);
   const history = useHistory();
   const logout = () => {
     dispatch({ type: Auth_ActionType.LOGOUT });

@@ -1,55 +1,57 @@
 import { IUser } from '../../ts/auth_interfaces';
-import { isLoggedIn, setAuthToken, removeAuthToken } from '../api/api-manager';
 import { Auth_ActionType } from '../ts/action-types';
 import {
-  IAUTH,
-  IAUTH_FAILURE,
+  I_LOGIN_FAILURE,
+  I_LOGIN_SUCCESS,
   ILOGOUT,
   IUPDATE_CURRENT,
 } from '../ts/interfaces';
 
 const initialState = {
   user: null,
-  isLoggedIn: isLoggedIn(),
-  auth_error: null,
+  isLoggedIn: false,
+  auth_error: '',
+  loading: true,
 };
 
 interface IInitialState {
   user: IUser | null;
   isLoggedIn: boolean;
   auth_error: [string] | string | null;
+  loading: boolean;
 }
-type Action = IAUTH | IUPDATE_CURRENT | ILOGOUT | IAUTH_FAILURE;
+type Action = I_LOGIN_SUCCESS | I_LOGIN_FAILURE | IUPDATE_CURRENT | ILOGOUT;
 
 const authReducer = (
   state: IInitialState = initialState,
   { type, payload }: Action
 ) => {
   switch (type) {
-    case Auth_ActionType.AUTH:
-      setAuthToken(payload.token);
+    case Auth_ActionType.LOGIN_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,
         user: payload.user,
         auth_error: null,
+        loading: false,
       };
-    case Auth_ActionType.SignUp_SUCCESS:
-      return { ...status, signUp_success: true };
+    case Auth_ActionType.LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoggedIn: false,
+        auth_error: payload,
+        loading: false,
+      };
     case Auth_ActionType.UPDATE_CURRENT:
       return {
         ...state,
         isLoggedIn: true,
-        user: payload.user,
+        user: payload,
         auth_error: null,
-      };
-    case Auth_ActionType.AUTH_FAILURE:
-      return {
-        ...state,
-        auth_error: payload,
+        loading: false,
       };
     case Auth_ActionType.LOGOUT:
-      removeAuthToken();
+      console.log(payload);
       return {
         isLoggedIn: false,
         user: null,

@@ -13,7 +13,7 @@ export default function SignIn() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const authError = useSelector((state: State) => state.authReducer.auth_error);
+  const { auth_error }: any = useSelector((state: State) => state.authReducer);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -47,11 +47,11 @@ export default function SignIn() {
             onChange={handleChange}
           />
         </div>
-        {authError && (
+        {auth_error && (
           <Alert
             color="red"
             title="Login failed!"
-            message={authError.message}
+            message={auth_error.message}
           />
         )}
         <div className="text-sm">

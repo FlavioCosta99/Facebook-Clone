@@ -8,29 +8,30 @@ const deserializeUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  const accessToken = get(req, 'headers.authorization', '').replace(
-    /^Bearer\s/,
-    ''
-  );
+  const { accessToken, refreshToken } = req.cookies;
 
-  const refreshToken = get(req, 'headers.x-refresh');
   if (!accessToken) return next();
+
   const { decoded, expired } = decode(accessToken);
-  if (!decoded) {
+  if (decoded) {
     // @ts-ignore
     req.user = decoded;
     return next();
   }
+
   if (expired && refreshToken) {
     const newAccessToken = await reIssueAccessToken({ refreshToken });
     if (newAccessToken) {
-      res.setHeader('x-access-token', newAccessToken);
+      res.cookie('accessToken', newAccessToken, {
+        httpOnly: true,
+      });
       const { decoded } = decode(newAccessToken);
       // @ts-ignore
       req.user = decoded;
     }
     return next();
   }
+
   return next();
 };
 

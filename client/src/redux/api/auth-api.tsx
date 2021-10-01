@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const signIn = (formData: any) => {
-  return axios.post('/user/signin', formData);
+  return axios.post('/api/sessions', formData);
 };
 export const signUp = (formData: any) => {
   return axios.post('/api/users', formData);
 };
 export const getCurrent = () => {
-  return axios.get('/user/getCurrent');
+  return axios.get('/api/sessions');
 };

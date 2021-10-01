@@ -6,18 +6,27 @@ import { Init } from './redux/api/api-manager';
 import SignIn from './components/AuthPage/SignIn/SignIn';
 import SignUp from './components/AuthPage/SignUp/SignUp';
 import Homepage from './components/Homepage/Homepage';
+import { useSelector } from 'react-redux';
+import { State } from './redux/reducers';
+import LoadingScreen from './components/LoadingScreen';
 
 Init();
 function App() {
+  const { loading }: any = useSelector((state: State) => state.authReducer);
+
   return (
     <BrowserRouter>
       <div className="App bg-gray">
         <Navbar />
-        <Switch>
-          <PrivateRoute path="/" exact component={Homepage} />
-          <Route path="/signin" exact component={SignIn} />
-          <Route path="/signup" exact component={SignUp} />
-        </Switch>
+        {loading ? (
+          <LoadingScreen />
+        ) : (
+          <Switch>
+            <PrivateRoute path="/" exact component={Homepage} />
+            <Route path="/signin" exact component={SignIn} />
+            <Route path="/signup" exact component={SignUp} />
+          </Switch>
+        )}
         <Footer />
       </div>
     </BrowserRouter>

@@ -8,12 +8,12 @@ import {
 } from '../service/session.service';
 import { validatePassword } from '../service/user.service';
 import { sign } from '../utils/jwt.utils';
-import { get } from 'lodash';
+import { get, omit } from 'lodash';
+import { UserDocument } from '../model/user.model';
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   //validate the email and password
   const user = await validatePassword(req.body);
-
   if (!user) {
     return res.status(401).send('Invalid username or password');
   }
@@ -21,13 +21,19 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   const session = await createSession(user._id, req.get('user-agent') || '');
   //create access token
   const accessToken = await createAccessToken({ user, session });
-  console.log(accessToken);
   //create refresh token
   const refreshToken = sign(session, {
     expiresIn: config.get('refreshTokenTtl'),
   });
   //send refresh & access token back
-  return res.send({ accessToken, refreshToken });
+  res.cookie('accessToken', accessToken, {
+    httpOnly: true,
+  });
+  res.cookie('refreshToken', refreshToken, {
+    httpOnly: true,
+  });
+  //cookie('token', refreshToken, { httpOnly: true });
+  return res.send({ user });
 }
 
 export async function invalidateUserSessionHandler(
@@ -39,8 +45,13 @@ export async function invalidateUserSessionHandler(
   return res.sendStatus(200);
 }
 
-export async function getUserSessionsHandler(req: Request, res: Response) {
-  const userId = get(req, 'user._id');
-  const sessions = await findSessions({ user: userId, valid: true });
-  return res.send(sessions);
+export async function getUserSessionsHandler(
+  req: Request<UserDocument | any>,
+  res: Response
+) {
+  // const sessions = await findSessions({ user: userId, valid: true });
+  let user = get(req, 'user');
+  user = omit(user, 'password');
+  //@ts-ignore
+  return res.send(user);
 }
