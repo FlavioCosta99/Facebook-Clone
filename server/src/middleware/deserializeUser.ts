@@ -18,7 +18,6 @@ const deserializeUser = async (
     req.user = decoded;
     return next();
   }
-
   if (expired && refreshToken) {
     const newAccessToken = await reIssueAccessToken({ refreshToken });
     if (newAccessToken) {
@@ -28,6 +27,9 @@ const deserializeUser = async (
       const { decoded } = decode(newAccessToken);
       // @ts-ignore
       req.user = decoded;
+    } else {
+      res.clearCookie('accessToken');
+      res.clearCookie('refreshToken');
     }
     return next();
   }

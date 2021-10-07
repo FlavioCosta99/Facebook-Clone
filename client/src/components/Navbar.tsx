@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { State } from '../redux/reducers';
 import { Auth_ActionType } from '../redux/ts/action-types';
+import { logout } from '../redux/actions/auth-actions';
 
 export default function Navbar() {
   const dispatch = useDispatch();
   const { isLoggedIn }: any = useSelector((state: State) => state.authReducer);
-  const history = useHistory();
-  const logout = () => {
-    dispatch({ type: Auth_ActionType.LOGOUT });
-    history.push('/signin');
+  const logoutfunc = () => {
+    dispatch(logout());
   };
   if (isLoggedIn) {
     return (
@@ -41,7 +40,7 @@ export default function Navbar() {
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-4 "
-                onClick={() => logout()}
+                onClick={() => logoutfunc()}
               >
                 Logout
               </button>

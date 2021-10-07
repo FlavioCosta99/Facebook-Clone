@@ -5,11 +5,13 @@ import {
   createSession,
   updateSession,
   findSessions,
+  deleteSession,
 } from '../service/session.service';
 import { validatePassword } from '../service/user.service';
 import { sign } from '../utils/jwt.utils';
 import { get, omit } from 'lodash';
 import { UserDocument } from '../model/user.model';
+import { removeCookies } from '../utils/sessions';
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   //validate the email and password
@@ -32,16 +34,13 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
   });
-  //cookie('token', refreshToken, { httpOnly: true });
   return res.send({ user });
 }
 
-export async function invalidateUserSessionHandler(
-  req: Request,
-  res: Response
-) {
+export async function deleteUserSession(req: Request, res: Response) {
   const sessionId = get(req, 'user.session');
-  await updateSession({ _id: sessionId }, { valid: false });
+  await deleteSession({ _id: sessionId });
+  removeCookies(res);
   return res.sendStatus(200);
 }
 
@@ -49,9 +48,7 @@ export async function getUserSessionsHandler(
   req: Request<UserDocument | any>,
   res: Response
 ) {
-  // const sessions = await findSessions({ user: userId, valid: true });
-  let user = get(req, 'user');
-  user = omit(user, 'password');
-  //@ts-ignore
-  return res.send(user);
+  const userId = get(req, 'user._id');
+  const sessions = await findSessions({ user: userId, valid: true });
+  return res.send(sessions);
 }

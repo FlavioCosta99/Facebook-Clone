@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../redux/actions/auth-actions';
 import FormField from '../../FormField';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Alert from '../../Alert';
 import { State } from '../../../redux/reducers';
 
@@ -19,13 +19,12 @@ export default function SignUp() {
   };
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const { auth_error }: any = useSelector((state: State) => state.authReducer);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(signup(formData, history));
+    dispatch(signup(formData));
   };
 
   return (

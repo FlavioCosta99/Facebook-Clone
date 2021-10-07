@@ -4,43 +4,45 @@ import { IUser } from '../../ts/auth_interfaces';
 import * as api from '../api/auth-api';
 import { Auth_ActionType } from '../ts/action-types';
 
-export const signin =
-  (formData: any, history: any) => async (dispatch: Dispatch) => {
-    try {
-      const { data } = await api.signIn(formData);
-      dispatch({ type: Auth_ActionType.LOGIN_SUCCESS, payload: data });
-      history.push('/');
-    } catch (error: any) {
-      dispatch({
-        type: Auth_ActionType.LOGIN_FAILURE,
-        payload: error.response.data,
-      });
-      console.log(error);
-    }
-  };
+export const signin = (formData: any) => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.signIn(formData);
+    dispatch({ type: Auth_ActionType.LOGIN_SUCCESS, payload: data });
+  } catch (error: any) {
+    dispatch({
+      type: Auth_ActionType.LOGIN_FAILURE,
+      payload: error.response.data,
+    });
+  }
+};
 
-export const signup =
-  (formData: any, history: any) => async (dispatch: Dispatch) => {
-    //dispatch({ type: Auth_ActionType.LOGIN_REQUEST });
-    try {
-      const { data }: AxiosResponse<IUser> = await api.signUp(formData);
-      console.log(data);
-      //  dispatch({ type: Auth_ActionType.AUTH, payload: data });
-      //history.push('/');
-    } catch (error: any) {
-      //dispatch({ type: Auth_ActionType.AUTH_FAILURE, payload: error.response.data, });
-    }
-  };
+export const signup = (formData: any) => async (dispatch: Dispatch) => {
+  try {
+    const { data }: AxiosResponse<IUser> = await api.signUp(formData);
+    console.log(data);
+    dispatch({ type: Auth_ActionType.LOGIN_SUCCESS, payload: data });
+  } catch (error: any) {
+    dispatch({
+      type: Auth_ActionType.LOGIN_FAILURE,
+      payload: error.response.data,
+    });
+  }
+};
 
-export const getCurrentUser = (history: any) => async (dispatch: Dispatch) => {
+export const getCurrentUser = () => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.getCurrent();
-    console.log(data);
     dispatch({ type: Auth_ActionType.UPDATE_CURRENT, payload: data });
-    history.push('/');
   } catch (error) {
     dispatch({ type: Auth_ActionType.LOGOUT });
-    history.push('/signin');
-    console.log(error);
+  }
+};
+
+export const logout = () => async (dispatch: Dispatch) => {
+  try {
+    await api.logout();
+    dispatch({ type: Auth_ActionType.LOGOUT });
+  } catch (err) {
+    console.log(err);
   }
 };

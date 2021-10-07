@@ -39,9 +39,11 @@ export async function reIssueAccessToken({
   if (!decoded || !get(decoded, '_id')) return false;
   //get the session
   const session = await Session.findById(get(decoded, '_id'));
+
   //make sure the session is still valid
   if (!session || !session?.valid) return false;
   const user = await findUser({ _id: session.user });
+
   if (!user) return false;
 
   const accessToken = createAccessToken({ user, session });
@@ -55,6 +57,11 @@ export async function updateSession(
   return Session.updateOne(query, update);
 }
 
+export async function deleteSession(query: FilterQuery<SessionDocument>) {
+  return Session.deleteOne(query);
+}
+
 export async function findSessions(query: FilterQuery<SessionDocument>) {
-  return Session.find(query).lean();
+  let session = Session.find(query).lean();
+  return session;
 }

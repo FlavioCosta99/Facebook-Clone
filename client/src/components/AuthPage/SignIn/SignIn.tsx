@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signin } from '../../../redux/actions/auth-actions';
 import FormField from '../../FormField';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../../Alert';
 import { State } from '../../../redux/reducers';
@@ -15,11 +15,10 @@ export default function SignIn() {
 
   const { auth_error }: any = useSelector((state: State) => state.authReducer);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(signin(formData, history));
+    dispatch(signin(formData));
   };
 
   return (
