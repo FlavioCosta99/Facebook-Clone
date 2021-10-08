@@ -4,7 +4,7 @@ import {
   deleteUserSession,
   getUserSessionsHandler,
 } from '../controller/session.controller';
-import { createUserSessionSchema } from '../schema/user.schema';
+import { createUserSessionSchema } from '../schema/session.schema';
 import { requiresUser, validateRequest } from '../middleware';
 
 var sessionRouter = Router();

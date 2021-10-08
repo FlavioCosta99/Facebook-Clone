@@ -1,6 +1,7 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 import config from 'config';
 import log from './logger';
+import UserModel from '../model/user.model';
 
 function connect() {
   const dbUri = config.get('dbUri') as string;

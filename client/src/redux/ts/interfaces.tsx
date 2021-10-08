@@ -13,6 +13,10 @@ export interface I_LOGIN_FAILURE {
   type: Auth_ActionType.LOGIN_FAILURE;
   payload: any;
 }
+export interface I_REGISTER_FAILURE {
+  type: Auth_ActionType.REGISTER_FAILURE;
+  payload: any;
+}
 
 export interface IUPDATE_CURRENT {
   type: Auth_ActionType.UPDATE_CURRENT;

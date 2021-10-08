@@ -19,11 +19,10 @@ export const signin = (formData: any) => async (dispatch: Dispatch) => {
 export const signup = (formData: any) => async (dispatch: Dispatch) => {
   try {
     const { data }: AxiosResponse<IUser> = await api.signUp(formData);
-    console.log(data);
     dispatch({ type: Auth_ActionType.LOGIN_SUCCESS, payload: data });
   } catch (error: any) {
     dispatch({
-      type: Auth_ActionType.LOGIN_FAILURE,
+      type: Auth_ActionType.REGISTER_FAILURE,
       payload: error.response.data,
     });
   }

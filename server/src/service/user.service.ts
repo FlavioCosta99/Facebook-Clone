@@ -1,10 +1,18 @@
-import { omit } from 'lodash';
+import { omit, get } from 'lodash';
 import { DocumentDefinition, FilterQuery } from 'mongoose';
 import User, { UserDocument } from '../model/user.model';
 
 export async function createUser(input: DocumentDefinition<UserDocument>) {
   try {
-    return await User.create(input);
+    let email = get(input, 'email');
+    let user = await findUser({ email });
+    if (user) {
+      return false;
+    } else {
+      return User.create(input);
+    }
+    //const newUser = new User(input);
+    //const user = await newUser.save();
   } catch (error: any) {
     throw new Error(error);
   }

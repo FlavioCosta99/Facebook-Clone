@@ -2,6 +2,7 @@ import { IUser } from '../../ts/auth_interfaces';
 import { Auth_ActionType } from '../ts/action-types';
 import {
   I_LOGIN_FAILURE,
+  I_REGISTER_FAILURE,
   I_LOGIN_SUCCESS,
   ILOGOUT,
   IUPDATE_CURRENT,
@@ -10,17 +11,22 @@ import {
 const initialState = {
   user: null,
   isLoggedIn: false,
-  auth_error: '',
+  auth_error: null,
   loading: true,
 };
 
 interface IInitialState {
   user: IUser | null;
   isLoggedIn: boolean;
-  auth_error: [string] | string | null;
+  auth_error: { type: String; message: String } | null;
   loading: boolean;
 }
-type Action = I_LOGIN_SUCCESS | I_LOGIN_FAILURE | IUPDATE_CURRENT | ILOGOUT;
+type Action =
+  | I_LOGIN_SUCCESS
+  | I_LOGIN_FAILURE
+  | I_REGISTER_FAILURE
+  | IUPDATE_CURRENT
+  | ILOGOUT;
 
 const authReducer = (
   state: IInitialState = initialState,
@@ -39,7 +45,14 @@ const authReducer = (
       return {
         ...state,
         isLoggedIn: false,
-        auth_error: payload,
+        auth_error: { type: 'login', message: payload },
+        loading: false,
+      };
+    case Auth_ActionType.REGISTER_FAILURE:
+      return {
+        ...state,
+        isLoggedIn: false,
+        auth_error: { type: 'register', message: payload },
         loading: false,
       };
     case Auth_ActionType.UPDATE_CURRENT:
@@ -51,7 +64,6 @@ const authReducer = (
         loading: false,
       };
     case Auth_ActionType.LOGOUT:
-      console.log(payload);
       return {
         isLoggedIn: false,
         user: null,
