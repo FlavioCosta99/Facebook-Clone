@@ -1,4 +1,3 @@
-import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -35,7 +34,6 @@ function App() {
             <UnauthenticatedRoute path="/signin" exact component={Login} />
           </Switch>
         )}{' '}
-        <Footer />
       </div>
     </BrowserRouter>
   );

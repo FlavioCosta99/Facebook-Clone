@@ -6,6 +6,7 @@ import Alert from '../Alert';
 import { State } from '../../redux/reducers';
 import './AuthPage.css';
 import SignUpModal from './SignUpModal';
+import Footer from './Footer';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -104,6 +105,7 @@ export default function SignIn() {
           {showRegister && <SignUpModal setShowRegister={setShowRegister} />}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

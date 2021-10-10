@@ -1,49 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { State } from '../redux/reducers';
 import { Auth_ActionType } from '../redux/ts/action-types';
 import { logout } from '../redux/actions/auth-actions';
+import FormField from './FormField';
+import HomeSvg from '../utils/Home';
+import FriendsSVG from '../utils/Friends';
+import WatchSVG from '../utils/Watch';
+import GroupsSVG from '../utils/Groups';
+import GamingSVG from '../utils/Gaming';
 
 export default function Navbar() {
-  const dispatch = useDispatch();
   const { isLoggedIn }: any = useSelector((state: State) => state.authReducer);
-  const logoutfunc = () => {
-    dispatch(logout());
-  };
+
   if (isLoggedIn) {
     return (
-      <nav className="bg-gray">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-between h-16">
-            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-              <div className="hidden sm:block sm:ml-6">
-                <div className="flex space-x-4">
-                  <Link
-                    to="/"
-                    className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    aria-current="page"
-                  >
-                    Dashboard
-                  </Link>
-
-                  <Link
-                    to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Team
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <button
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-4 "
-                onClick={() => logoutfunc()}
-              >
-                Logout
-              </button>
+      <nav
+        className="bg-white shadow-lg fixed w-full"
+        style={{ height: '115px' }}
+      >
+        <div className="p-3" style={{ height: '100%' }}>
+          <div className="flex justify-between">
+            <div className="flex space-x-7 w-full justify-center">
+              <LeftMenu />
+              <CenterMenu />
+              <RightMenu />
             </div>
           </div>
         </div>
@@ -53,3 +36,116 @@ export default function Navbar() {
     return <></>;
   }
 }
+
+const LeftMenu = () => {
+  return (
+    <div
+      className="fixed left-3 top-0 flex items-center"
+      style={{ height: '115px' }}
+    >
+      <img
+        src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-0.png"
+        alt="facebook logo"
+        style={{ height: '50px' }}
+      />
+      <label className="search_box flex p-2 rounded-lg ml-2">
+        <div className="mr-2 flex items-center">
+          <i data-visualcompletion="css-img" className="search_box"></i>{' '}
+        </div>
+        <input
+          name="search"
+          type="text"
+          required={true}
+          placeholder="Facebook search"
+          value={''}
+          onChange={() => {}}
+        />
+      </label>
+    </div>
+  );
+};
+
+const RightMenu = () => {
+  const dispatch = useDispatch();
+  const logoutfunc = () => {
+    dispatch(logout());
+  };
+  return (
+    <div
+      className="fixed right-3 top-0 flex justify-center items-center"
+      style={{ height: '115px' }}
+    >
+      <button
+        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-4 "
+        onClick={() => logoutfunc()}
+      >
+        Logout
+      </button>
+    </div>
+  );
+};
+
+const CenterMenu = () => {
+  return (
+    <div className="hidden md:flex items-center">
+      <NavLink
+        to="/"
+        activeClassName="navbar_link--active"
+        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        style={{ margin: '5px', borderColor: 'blue' }}
+        aria-current="page"
+      >
+        <span>
+          <HomeSvg
+            style={{
+              fill: 'blue',
+              height: '28px',
+              width: '28px',
+            }}
+          />
+        </span>
+      </NavLink>
+      <NavLink
+        to="/"
+        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        style={{ margin: '5px' }}
+        aria-current="page"
+      >
+        <span>
+          <FriendsSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+        </span>
+      </NavLink>
+
+      <NavLink
+        to="/"
+        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        style={{ margin: '5px' }}
+        aria-current="page"
+      >
+        <span>
+          <WatchSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+        </span>
+      </NavLink>
+      <NavLink
+        to="/"
+        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        style={{ margin: '5px' }}
+        aria-current="page"
+      >
+        <span>
+          <GroupsSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+        </span>
+      </NavLink>
+      <NavLink
+        to="/"
+        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        style={{ margin: '5px' }}
+        aria-current="page"
+      >
+        <span>
+          <GamingSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+        </span>
+      </NavLink>
+    </div>
+  );
+};

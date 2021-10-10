@@ -5,3 +5,26 @@
 body {
   background-color: #f0f2f5;
 }
+
+.search_box {
+  color: #606770;
+  cursor: default;
+  font-weight: 600;
+  vertical-align: middle;
+  background-color: #f0f2f5;
+}
+.search_box input {
+  background-color: #f0f2f5;
+}
+.search_box input:focus-visible {
+  outline: 0px !important;
+}
+.search_box i {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/5WN6chIvAJP.png');
+  background-position: -102px -149px;
+  background-size: auto;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
