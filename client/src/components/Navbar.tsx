@@ -67,8 +67,9 @@ const LeftMenu = () => {
 
 const RightMenu = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const logoutfunc = () => {
-    dispatch(logout());
+    dispatch(logout(history));
   };
   return (
     <div
@@ -89,16 +90,16 @@ const CenterMenu = () => {
   return (
     <div className="hidden md:flex items-center">
       <NavLink
+        exact
         to="/"
         activeClassName="navbar_link--active"
-        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
-        style={{ margin: '5px', borderColor: 'blue' }}
+        className="navbar_link py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        style={{ margin: '5px' }}
         aria-current="page"
       >
         <span>
           <HomeSvg
             style={{
-              fill: 'blue',
               height: '28px',
               width: '28px',
             }}
@@ -106,44 +107,48 @@ const CenterMenu = () => {
         </span>
       </NavLink>
       <NavLink
-        to="/"
-        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        to="/friends"
+        activeClassName="navbar_link--active"
+        className="navbar_link py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
         style={{ margin: '5px' }}
         aria-current="page"
       >
         <span>
-          <FriendsSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+          <FriendsSVG style={{ height: '28px', width: '28px' }} />
         </span>
       </NavLink>
 
       <NavLink
-        to="/"
-        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        to="/watch"
+        activeClassName="navbar_link--active"
+        className="navbar_link py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
         style={{ margin: '5px' }}
         aria-current="page"
       >
         <span>
-          <WatchSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+          <WatchSVG style={{ height: '28px', width: '28px' }} />
         </span>
       </NavLink>
       <NavLink
-        to="/"
-        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        to="/groups"
+        activeClassName="navbar_link--active"
+        className="navbar_link py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
         style={{ margin: '5px' }}
         aria-current="page"
       >
         <span>
-          <GroupsSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+          <GroupsSVG style={{ height: '28px', width: '28px' }} />
         </span>
       </NavLink>
       <NavLink
-        to="/"
-        className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        to="/gaming"
+        activeClassName="navbar_link--active"
+        className="navbar_link py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
         style={{ margin: '5px' }}
         aria-current="page"
       >
         <span>
-          <GamingSVG style={{ fill: 'gray', height: '28px', width: '28px' }} />
+          <GamingSVG style={{ height: '28px', width: '28px' }} />
         </span>
       </NavLink>
     </div>

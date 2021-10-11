@@ -30,7 +30,7 @@ function App() {
           <LoadingScreen />
         ) : (
           <Switch>
-            <PrivateRoute path="/" exact component={Homepage} />
+            <PrivateRoute exact path="/" component={Homepage} />
             <UnauthenticatedRoute path="/signin" exact component={Login} />
           </Switch>
         )}{' '}

@@ -6,6 +6,16 @@ body {
   background-color: #f0f2f5;
 }
 
+.navbar_link--active {
+  border-color: blue;
+}
+.navbar_link--active span svg {
+  fill: blue !important;
+}
+.navbar_link span svg {
+  fill: gray;
+}
+
 .search_box {
   color: #606770;
   cursor: default;

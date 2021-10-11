@@ -6,6 +6,7 @@ import {
   I_LOGIN_SUCCESS,
   ILOGOUT,
   IUPDATE_CURRENT,
+  I_AUTH_LOADING,
 } from '../ts/interfaces';
 
 const initialState = {
@@ -22,6 +23,7 @@ interface IInitialState {
   loading: boolean;
 }
 type Action =
+  | I_AUTH_LOADING
   | I_LOGIN_SUCCESS
   | I_LOGIN_FAILURE
   | I_REGISTER_FAILURE
@@ -33,6 +35,11 @@ const authReducer = (
   { type, payload }: Action
 ) => {
   switch (type) {
+    case Auth_ActionType.AUTH_LOADING:
+      return {
+        ...state,
+        auth_error: null,
+      };
     case Auth_ActionType.LOGIN_SUCCESS:
       return {
         ...state,
