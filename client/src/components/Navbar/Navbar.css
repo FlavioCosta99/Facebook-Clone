@@ -1,0 +1,102 @@
+.arrow_down {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/9hjSjlsfbAc.png);
+  background-position: -168px -128px;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.button_logout {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/GA35uV-IE1-.png);
+  background-position: 0px -226px;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.navbar_avatar {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.navbar_link--active {
+  border-color: blue;
+}
+.navbar_link--active span svg {
+  fill: blue !important;
+}
+.navbar_link span svg {
+  fill: gray;
+  width: 70px !important;
+}
+
+.search_box {
+  color: #606770;
+  cursor: default;
+  font-weight: 600;
+  vertical-align: middle;
+  background-color: #f0f2f5;
+}
+.search_box input {
+  background-color: #f0f2f5;
+}
+.search_box input:focus-visible {
+  outline: 0px !important;
+}
+.search_box i {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/5WN6chIvAJP.png');
+  background-position: -102px -149px;
+  background-size: auto;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 1220px) {
+  .search_box input {
+    width: 138px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .navbar_main {
+    height: 190px !important;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar .leftMenu,
+  .navbar .rightMenu,
+  .navbar .centerMenu {
+    height: 70px !important;
+  }
+  .navbar .fixed {
+    position: relative !important;
+  }
+  .navbar .rightMenu {
+    margin-left: 55px;
+  }
+  .navbar_secondmenu {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .navbar_main {
+    height: 250px !important;
+  }
+  .navbar_secondmenu {
+    flex-direction: column;
+  }
+  .navbar .rightMenu {
+    margin-left: 0px;
+    align-items: center;
+  }
+}

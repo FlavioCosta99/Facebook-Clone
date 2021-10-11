@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Init } from './redux/api/api-manager';
@@ -14,9 +14,8 @@ import UnauthenticatedRoute from './components/UnauthenticatedRoute';
 
 Init();
 function App() {
-  const { loading, loggedIn }: any = useSelector(
-    (state: State) => state.authReducer
-  );
+  const { loading, isLoggedIn }: { loading: boolean; isLoggedIn: boolean } =
+    useSelector((state: State) => state.authReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCurrentUser());

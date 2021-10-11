@@ -58,7 +58,7 @@ export default function Footer() {
             </li>
           ))}
           <a
-            href="#"
+            href="/"
             style={{
               backgroundColor: '#f5f6f7',
               borderColor: '#ccd0d5',

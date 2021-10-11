@@ -6,79 +6,10 @@ body {
   background-color: #f0f2f5;
 }
 
-.navbar_link--active {
-  border-color: blue;
-}
-.navbar_link--active span svg {
-  fill: blue !important;
-}
-.navbar_link span svg {
-  fill: gray;
-}
-
-.search_box {
-  color: #606770;
-  cursor: default;
-  font-weight: 600;
-  vertical-align: middle;
-  background-color: #f0f2f5;
-}
-.search_box input {
-  background-color: #f0f2f5;
-}
-.search_box input:focus-visible {
-  outline: 0px !important;
-}
-.search_box i {
-  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/5WN6chIvAJP.png');
-  background-position: -102px -149px;
-  background-size: auto;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-@media only screen and (max-width: 1000px) {
-  .search_box input {
-    width: 138px;
-  }
-}
-
-@media only screen and (max-width: 825px) {
-  .navbar_main {
-    height: 190px !important;
-  }
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-  .navbar .leftMenu,
-  .navbar .rightMenu,
-  .navbar .centerMenu {
-    height: 70px !important;
-  }
-  .navbar .fixed {
-    position: relative !important;
-  }
-  .navbar .rightMenu {
-    margin-left: 55px;
-  }
-  .navbar_secondmenu {
-    display: flex;
-    justify-content: space-around;
-  }
-}
-
-@media only screen and (max-width: 465px) {
-  .navbar_main {
-    height: 250px !important;
-  }
-  .navbar_secondmenu {
-    flex-direction: column;
-  }
-  .navbar .rightMenu {
-    margin-left: 0px;
-    align-items: center;
-  }
+.divider {
+  border-bottom: 1px solid #dadde1;
+  align-items: center;
+  display: flex;
+  margin: 20px 16px;
+  text-align: center;
 }

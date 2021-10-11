@@ -15,14 +15,6 @@
   width: 332px;
 }
 
-.divider {
-  border-bottom: 1px solid #dadde1;
-  align-items: center;
-  display: flex;
-  margin: 20px 16px;
-  text-align: center;
-}
-
 .sign_up_close {
   position: absolute;
   right: 10px;
