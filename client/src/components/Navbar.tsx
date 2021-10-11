@@ -18,15 +18,17 @@ export default function Navbar() {
   if (isLoggedIn) {
     return (
       <nav
-        className="bg-white shadow-lg fixed w-full"
+        className="bg-white shadow-lg fixed w-full navbar_main"
         style={{ height: '115px' }}
       >
         <div className="p-3" style={{ height: '100%' }}>
           <div className="flex justify-between">
-            <div className="flex space-x-7 w-full justify-center">
+            <div className="flex space-x-7 w-full justify-center navbar">
               <LeftMenu />
-              <CenterMenu />
-              <RightMenu />
+              <div className="navbar_secondmenu">
+                <CenterMenu />
+                <RightMenu />
+              </div>
             </div>
           </div>
         </div>
@@ -40,7 +42,7 @@ export default function Navbar() {
 const LeftMenu = () => {
   return (
     <div
-      className="fixed left-3 top-0 flex items-center"
+      className="fixed left-3 top-0 flex items-center leftMenu"
       style={{ height: '115px' }}
     >
       <img
@@ -73,7 +75,7 @@ const RightMenu = () => {
   };
   return (
     <div
-      className="fixed right-3 top-0 flex justify-center items-center"
+      className="fixed right-3 top-0 flex justify-center items-center rightMenu"
       style={{ height: '115px' }}
     >
       <button
@@ -88,7 +90,7 @@ const RightMenu = () => {
 
 const CenterMenu = () => {
   return (
-    <div className="hidden md:flex items-center">
+    <div className="flex items-center centerMenu">
       <NavLink
         exact
         to="/"
