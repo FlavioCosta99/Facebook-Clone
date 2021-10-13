@@ -23,15 +23,30 @@
   border-radius: 50%;
   margin-right: 5px;
 }
+
+/* navbar active */
 .navbar_link--active {
-  border-color: blue;
+  border-bottom: 4px solid blue !important;
+  border-radius: 0px !important;
+}
+.navbar_link--active:hover {
+  background-color: inherit !important;
 }
 .navbar_link--active span svg {
   fill: blue !important;
 }
+
+/* navbar */
 .navbar_link span svg {
   fill: gray;
   width: 70px !important;
+}
+.navbar_link {
+  border-bottom: 0px;
+  border-radius: 10px;
+}
+.navbar_link:hover {
+  background-color: #f5f5f5;
 }
 
 .search_box {
@@ -55,6 +70,9 @@
   height: 16px;
   background-repeat: no-repeat;
   display: inline-block;
+}
+.navbar_main {
+  top: 0;
 }
 
 @media only screen and (max-width: 1220px) {

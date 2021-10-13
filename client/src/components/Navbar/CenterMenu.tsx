@@ -12,7 +12,7 @@ const CenterMenu = () => {
         exact
         to="/"
         activeClassName="navbar_link--active"
-        className="navbar_link py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"
+        className="navbar_link py-4 px-2 "
         style={{ margin: '5px' }}
         aria-current="page"
       >
