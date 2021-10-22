@@ -13,7 +13,10 @@ export default function Navbar() {
 
   if (isLoggedIn) {
     return (
-      <nav className="bg-white shadow-lg fixed w-full navbar_main">
+      <nav
+        className="bg-white shadow-lg fixed w-full navbar_main"
+        style={{ zIndex: 3 }}
+      >
         <div style={{ height: '100%' }}>
           <div className="flex justify-between">
             <div className="flex space-x-7 w-full justify-center navbar">

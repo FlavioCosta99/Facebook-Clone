@@ -36,10 +36,101 @@
   background-position: center;
   background-size: cover;
 }
+.form_attachments div {
+  display: flex;
+  cursor: pointer;
+}
+.form_attachments div i {
+  margin-right: 10px;
+}
+
+.live_video {
+  background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/jrzbj1_5Jys.png');
+  background-position: 0 0;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.photo_video {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/jrzbj1_5Jys.png);
+  background-position: 0 -225px;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.feeling_activity {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/jrzbj1_5Jys.png);
+  background-position: 0 -25px;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.add_user_icon {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/mpft5zOVaf9.png);
+  background-position: 0px -766px;
+  background-size: auto;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.create_room_icon {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/XT_3HhaR9VX.png);
+  background-position: 0 -219px;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.like {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/u8zErb8HiZJ.png);
+  background-position: 0px -327px;
+  background-size: auto;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.comment {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/u8zErb8HiZJ.png);
+  background-position: 0px -289px;
+  background-size: auto;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.share {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/u8zErb8HiZJ.png);
+  background-position: 0px -346px;
+  background-size: auto;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
 
 .left_panel,
 .right_panel {
   width: 25%;
+}
+
+.container_rightpanel {
+  overflow: hidden;
+  height: 90vh;
+  width: 25%;
+}
+.container_rightpanel:hover {
+  overflow: auto;
 }
 
 .center_panel {
@@ -47,6 +138,9 @@
 }
 
 @media only screen and (max-width: 960px) {
+  .container_rightpanel {
+    height: 75vh;
+  }
   .homepage {
     margin-top: 190px !important;
   }

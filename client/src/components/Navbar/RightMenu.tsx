@@ -18,7 +18,7 @@ const RightMenu = ({ user }: { user: IUser }) => {
       style={{ height: '75px' }}
     >
       <div className="flex items-center">
-        <Avatar user={user} />
+        <Avatar avatar={user.avatar} />
         <p className="text-base mr-3"> {user.name}</p>
       </div>
       <div>
@@ -31,7 +31,10 @@ const RightMenu = ({ user }: { user: IUser }) => {
         >
           <ul>
             <li className="flex mt-2 items-center ml-2">
-              <Avatar user={user} style={{ height: '40px', width: '40px' }} />
+              <Avatar
+                avatar={user.avatar}
+                style={{ height: '40px', width: '40px' }}
+              />
               <div>
                 <p className="text-xl">{user.name}</p>
                 <p className="text-xs"> See your profile </p>

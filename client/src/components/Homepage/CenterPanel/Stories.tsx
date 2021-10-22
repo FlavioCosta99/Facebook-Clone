@@ -8,11 +8,11 @@ import { IUser } from '../../../ts/auth_interfaces';
 const list_stories = [
   {
     name: 'User1',
-    img: 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.6435-9/s280x280/245367919_4618288918222353_8738800054913646715_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=365331&_nc_ohc=kDCTnB1LC8EAX8-A0M5&_nc_ht=scontent.fopo2-2.fna&oh=0b007f2671e90de7e34e0291596ea655&oe=618CA5B1',
+    img: 'https://randomwordgenerator.com/img/picture-generator/53e3d54a4c57a814f1dc8460962e33791c3ad6e04e507440762e7ad39344c4_640.jpg',
   },
   {
     name: 'User2',
-    img: 'https://scontent.fopo2-1.fna.fbcdn.net/v/t39.30808-6/s280x280/244992662_3076973932541883_2389786904720457849_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=535e6e&_nc_ohc=NXgPhZy8JUkAX8nqyVv&_nc_ht=scontent.fopo2-1.fna&oh=0ba654cef21e876a06fbc8d633c4cf99&oe=616B67D9',
+    img: 'https://randomwordgenerator.com/img/picture-generator/57e6d2474b52aa14f1dc8460962e33791c3ad6e04e5077497c2a7cd49545c0_640.jpg',
   },
 ];
 export default function Stories() {
@@ -84,6 +84,8 @@ const Container = styled.div<{ img: string }>`
     width: 100%;
     height: 100%;
     background-image: url(${(props: any) => props.img});
+    background-size: cover;
+    background-position: center;
     filter: brightness(0.7);
   }
 `;

@@ -48,7 +48,7 @@ export default function SignIn() {
             <FormField
               name="email"
               type="email"
-              className="input_fields"
+              classNameInput="input_fields"
               required={true}
               placeholder="Email"
               value={formData.email}
@@ -58,7 +58,7 @@ export default function SignIn() {
               name="password"
               type="password"
               required={true}
-              className="input_fields"
+              classNameInput="input_fields"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
@@ -75,7 +75,7 @@ export default function SignIn() {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center border border-transparent rounded-md text-white bg-blue-400 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-4  btn_login"
+              className="group mt-4 relative w-full flex justify-center border border-transparent rounded-md text-white bg-blue-400 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-4  btn_login"
             >
               Log In
             </button>

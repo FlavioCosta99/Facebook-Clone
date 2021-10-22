@@ -10,10 +10,16 @@ import {
 } from '../ts/interfaces';
 
 const initialState = {
-  user: null,
-  isLoggedIn: false,
+  user: {
+    id: '2',
+    name: 'Flávio',
+    email: 'fadc99@hotmail.com',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  isLoggedIn: true,
   auth_error: null,
-  loading: true,
+  loading: false,
 };
 
 interface IInitialState {
@@ -71,6 +77,7 @@ const authReducer = (
         loading: false,
       };
     case Auth_ActionType.LOGOUT:
+      return { ...state };
       return {
         isLoggedIn: false,
         user: null,

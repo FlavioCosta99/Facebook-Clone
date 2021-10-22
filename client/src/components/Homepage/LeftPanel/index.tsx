@@ -43,10 +43,13 @@ export default function LeftPanel() {
     (state: State) => state.authReducer
   );
   return (
-    <div className="left_panel mt-4 p-3">
+    <div className="left_panel mt-4 p-2">
       <ul>
         <li className="flex items-center mb-4 p-3 cursor-pointer hover:bg-gray-400 rounded-lg">
-          <Avatar user={user} style={{ height: '40px', width: '40px' }} />
+          <Avatar
+            avatar={user.avatar}
+            style={{ height: '40px', width: '40px' }}
+          />
           <p className="text-xl ml-2"> {user.name}</p>
         </li>
         {left_menu_info.map((inf) => (

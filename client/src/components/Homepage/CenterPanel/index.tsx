@@ -1,14 +1,16 @@
 import React from 'react';
-import PublicationForm from './PublicationForm';
+import PostsForm from './PostsForm';
+import Posts from './Posts';
 import Rooms from './Rooms';
 import Stories from './Stories';
 
 export default function index() {
   return (
-    <div className="center_panel">
+    <div className="center_panel p-2">
       <Stories />
-      <PublicationForm />
+      <PostsForm />
       <Rooms />
+      <Posts />
     </div>
   );
 }
