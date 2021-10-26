@@ -6,43 +6,13 @@ import Avatar from '../../Avatar';
 const friends: Array<IFriend> = [
   {
     id: '1',
-    name: 'José',
+    name: 'User1',
     avatar:
       'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
   },
   {
     id: '2',
-    name: 'José',
-    avatar:
-      'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
-  },
-  {
-    id: '3',
-    name: 'José',
-    avatar:
-      'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
-  },
-  {
-    id: '4',
-    name: 'José',
-    avatar:
-      'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
-  },
-  {
-    id: '5',
-    name: 'José',
-    avatar:
-      'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
-  },
-  {
-    id: '6',
-    name: 'a',
-    avatar:
-      'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
-  },
-  {
-    id: '7',
-    name: 'asd',
+    name: 'User2',
     avatar:
       'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
   },

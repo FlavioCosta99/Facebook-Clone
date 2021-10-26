@@ -1,7 +1,7 @@
 import React from 'react';
 const ads = [
   {
-    img: 'https://scontent.fopo2-1.fna.fbcdn.net/v/t45.1600-4/p476x249/245962482_23848831210690721_4525671604610413927_n.jpg?_nc_cat=1&ccb=1-5&_nc_sid=eaa83b&_nc_ohc=xb7S30-k_aQAX9oHjxB&_nc_ht=scontent.fopo2-1.fna&oh=75a1b019e1c1cf1176fa724d0a492735&oe=61771E85',
+    img: 'https://scontent.fopo2-2.fna.fbcdn.net/v/t45.5328-4/c0.0.960.960a/p960x960/239339339_4391914094255244_4930223873092751033_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=c48759&_nc_ohc=TxAkghoCXlwAX9_W9As&_nc_ht=scontent.fopo2-2.fna&oh=ba77d272386eea614421c23650e58eee&oe=617C6627',
     title: 'This is an ad',
     description: 'Description for ad nº1',
   },
