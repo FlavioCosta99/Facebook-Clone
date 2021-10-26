@@ -7,19 +7,13 @@ import {
   ILOGOUT,
   IUPDATE_CURRENT,
   I_AUTH_LOADING,
-} from '../ts/interfaces';
+} from '../ts/interfaces_auth';
 
 const initialState = {
-  user: {
-    id: '2',
-    name: 'Flávio',
-    email: 'fadc99@hotmail.com',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  isLoggedIn: true,
+  user: null,
+  isLoggedIn: false,
   auth_error: null,
-  loading: false,
+  loading: true,
 };
 
 interface IInitialState {
@@ -77,7 +71,6 @@ const authReducer = (
         loading: false,
       };
     case Auth_ActionType.LOGOUT:
-      return { ...state };
       return {
         isLoggedIn: false,
         user: null,

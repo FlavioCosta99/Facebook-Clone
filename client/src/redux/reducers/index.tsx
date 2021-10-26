@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import authReducer from './auth-reducer';
+import postsReducer from './posts-reducer';
 
 const appReducer = combineReducers({
   authReducer,
+  postsReducer,
 });
 
 const rootReducer = (state: any, action: any) => {

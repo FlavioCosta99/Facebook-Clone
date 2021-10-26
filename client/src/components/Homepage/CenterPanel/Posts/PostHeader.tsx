@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React from 'react';
-import { IPosts } from '../../../../ts/auth_interfaces';
+import { IPosts } from '../../../../ts/posts_interfaces';
 import Avatar from '../../../Avatar';
 
 export default function PostHeader({ post }: { post: IPosts }) {
@@ -14,9 +14,7 @@ export default function PostHeader({ post }: { post: IPosts }) {
         <div>
           <h1 className="font-bold"> {post.user.name}</h1>
           <p className="text-sm font-thin">
-            {moment(
-              post.date.setTime(post.date.getTime() - 24 * 60 * 60 * 1000 * 5)
-            ).fromNow()}
+            {moment(new Date(post.createdAt)).fromNow()}
           </p>
         </div>
       </div>

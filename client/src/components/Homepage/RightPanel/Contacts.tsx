@@ -1,5 +1,6 @@
 import React from 'react';
-import { IFriend, IUser } from '../../../ts/auth_interfaces';
+import { IUser } from '../../../ts/auth_interfaces';
+import { IFriend } from '../../../ts/posts_interfaces';
 import Avatar from '../../Avatar';
 
 const friends: Array<IFriend> = [
@@ -34,13 +35,13 @@ const friends: Array<IFriend> = [
       'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
   },
   {
-    id: '5',
+    id: '6',
     name: 'a',
     avatar:
       'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
   },
   {
-    id: '5',
+    id: '7',
     name: 'asd',
     avatar:
       'https://i.picsum.photos/id/378/200/200.jpg?hmac=p3D7bBkZrx1JzS7apkMa8wGrQ-IaD9aNykMbpZ0DHDU',
@@ -52,7 +53,9 @@ export default function Contacts() {
     <div>
       <h1 className="text-lg text-gray-100 my-4"> Contacts </h1>
       {friends &&
-        friends.map((friend: IFriend) => <FriendContainer friend={friend} />)}
+        friends.map((friend: IFriend) => (
+          <FriendContainer key={friend.id} friend={friend} />
+        ))}
     </div>
   );
 }

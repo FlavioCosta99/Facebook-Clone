@@ -23,8 +23,8 @@ export default function Stories() {
   return (
     <div className="flex">
       <CreateStory user={user} />
-      {list_stories.map((storie): any => (
-        <StoriesContainer storie={storie} />
+      {list_stories.map((storie, i): any => (
+        <StoriesContainer key={i} storie={storie} />
       ))}
     </div>
   );

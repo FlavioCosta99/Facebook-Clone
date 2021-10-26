@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface IAlert {
   color: string;
   title: string;

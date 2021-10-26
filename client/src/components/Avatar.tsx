@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react';
-import { IUser } from '../ts/auth_interfaces';
 
 const Avatar = ({
   avatar,

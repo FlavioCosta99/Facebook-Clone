@@ -17,8 +17,11 @@ export default function Sponsored() {
     <div>
       <h1 className="text-lg text-gray-100 my-4"> Sponsored</h1>
       <ul>
-        {ads.map((ad) => (
-          <li className="flex flex-wrap m-3 ml-0 cursor-pointer hover:bg-gray-400 rounded-xl p-2">
+        {ads.map((ad, i) => (
+          <li
+            key={i}
+            className="flex flex-wrap m-3 ml-0 cursor-pointer hover:bg-gray-400 rounded-xl p-2"
+          >
             <img
               src={ad.img}
               alt={ad.title}

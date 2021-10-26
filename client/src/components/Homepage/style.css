@@ -99,6 +99,19 @@
   background-repeat: no-repeat;
   display: inline-block;
 }
+
+.like_active {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/2voPhvQzLlj.png);
+  background-position: 0px -199px;
+  background-size: auto;
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  filter: invert(0.39) sepia(0.57) saturate(2) saturate(2) saturate(2)
+    saturate(2) saturate(2) saturate(1.4775) hue-rotate(202deg) brightness(0.97)
+    contrast(0.96);
+}
 .comment {
   background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/u8zErb8HiZJ.png);
   background-position: 0px -289px;

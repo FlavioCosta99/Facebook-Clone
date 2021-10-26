@@ -5,7 +5,7 @@ import Avatar from '../../Avatar';
 export default function Rooms() {
   const friends_list: Array<IUser> = [
     {
-      id: '1',
+      _id: '1',
       email: 'asd@asd.com',
       name: 'User1',
       createdAt: new Date(),
@@ -14,7 +14,7 @@ export default function Rooms() {
         'https://randomwordgenerator.com/img/picture-generator/54e7d4424f53b10ff3d8992cc12c30771037dbf85254784d712f7edc9e4f_640.jpg',
     },
     {
-      id: '2',
+      _id: '2',
       email: 'asd@asd.com',
       name: 'User2',
       createdAt: new Date(),
@@ -23,7 +23,7 @@ export default function Rooms() {
         'https://randomwordgenerator.com/img/picture-generator/woman-s-face-3400813.jpg',
     },
     {
-      id: '3',
+      _id: '3',
       email: 'asd@asd.com',
       name: 'User3',
       createdAt: new Date(),
@@ -44,6 +44,7 @@ export default function Rooms() {
       <div className="flex ml-3">
         {friends_list.map((friend) => (
           <Avatar
+            key={friend._id}
             avatar={friend.avatar}
             style={{ height: '40px', width: '40px' }}
           />

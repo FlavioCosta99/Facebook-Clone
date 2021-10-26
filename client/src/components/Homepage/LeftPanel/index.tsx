@@ -52,8 +52,11 @@ export default function LeftPanel() {
           />
           <p className="text-xl ml-2"> {user.name}</p>
         </li>
-        {left_menu_info.map((inf) => (
-          <li className="flex items-center mb-2 p-1 cursor-pointer hover:bg-gray-400 rounded-lg">
+        {left_menu_info.map((inf, i) => (
+          <li
+            key={i}
+            className="flex items-center mb-2 p-1 cursor-pointer hover:bg-gray-400 rounded-lg"
+          >
             <img
               className="hu5pjgll bixrwtb6"
               src={inf.img}
@@ -67,8 +70,11 @@ export default function LeftPanel() {
       <div className="divider" />
       <ul>
         <h1 className="text-gray-100 ml-2 mb-2"> Your shortcuts </h1>
-        {shortcuts.map((shrt) => (
-          <li className="flex items-center mb-2 p-1 cursor-pointer hover:bg-gray-400 rounded-lg">
+        {shortcuts.map((shrt, i) => (
+          <li
+            key={i}
+            className="flex items-center mb-2 p-1 cursor-pointer hover:bg-gray-400 rounded-lg"
+          >
             <img
               className="hu5pjgll bixrwtb6"
               src={shrt.img}

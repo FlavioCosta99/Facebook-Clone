@@ -1,13 +1,12 @@
 import { useRef } from 'react';
-
 import Avatar from '../../../Avatar';
 import useOutsideClick from '../../../useOutsideClick';
-import { IPosts } from '../../../../ts/auth_interfaces';
+import { ILike } from '../../../../ts/posts_interfaces';
 const ModalShowLikes = ({
   likes,
   setShowLikes,
 }: {
-  likes: Partial<IPosts>[];
+  likes: Array<ILike>;
   setShowLikes: Function;
 }) => {
   const ref: any = useRef();
@@ -32,7 +31,7 @@ const ModalShowLikes = ({
           </div>
           <ul className="pb-3">
             {likes.map((like: any) => (
-              <li className="p-3 m-2 flex justify-between">
+              <li key={like.id} className="p-3 m-2 flex justify-between">
                 <div className="flex items-center">
                   <Avatar avatar={like.avatar} />
                   <p className="ml-2"> {like.name} </p>
