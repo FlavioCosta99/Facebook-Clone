@@ -9,4 +9,4 @@
 Login page preview:
 ====================
 
-![grab-landing-page](https://github.com/FlavioCosta99/Facebook-Clone/blob/main/LoginPagePreview.gif)
+![preview-page](https://github.com/FlavioCosta99/Facebook-Clone/blob/main/Preview.gif)
