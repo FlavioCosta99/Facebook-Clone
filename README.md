@@ -6,7 +6,7 @@
 <li>Nodejs, Express and mongoose for the back-end </li>
 </ul>
 
-Login page preview:
+Preview:
 ====================
 
 ![preview-page](https://github.com/FlavioCosta99/Facebook-Clone/blob/main/Preview.gif)
